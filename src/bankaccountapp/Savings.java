@@ -6,8 +6,8 @@ import java.util.Random;
 // number and accessed with a 4-digit code
 public class Savings extends Account {
     // List properties specific to Savings
-    int safetyDepositBoxID;
-    int safetyDepositBoxKey;
+    private int safetyDepositBoxID;
+    private int safetyDepositBoxKey;
     
     // Constructor to initialize settings for the savings properties
     public Savings (String name, String sSN, double initDeposit) {
