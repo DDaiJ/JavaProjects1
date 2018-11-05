@@ -2,10 +2,6 @@ package bankaccountapp;
 
 import java.util.Random;
 
-// Both accounts will use an interface that determines the base interest rate
-// - Saving accounts will use .25 points less than the base rate
-// - Checking accounts will use 15% of the base rate
-
 public abstract class Account implements IBaseRate{
     // we use abstract class because we won't be creating Account object in main.
     // Account is the super class, being called before calling checking and savings.
@@ -30,9 +26,13 @@ public abstract class Account implements IBaseRate{
  
         index++;
         //set account number
-        this.accountNumber = setAccountNumber();
+        this.accountNumber = setAccountNumber();  
         
+        setRate();
     }
+    
+    public abstract void setRate(); // All classes which inherent this class need to implement
+    // this method 
     
     // List common methods
     private String setAccountNumber() {
@@ -47,7 +47,8 @@ public abstract class Account implements IBaseRate{
         System.out.println(
                 "NAME: " + name +
                 "\nACCOUNT NUMBER: " + accountNumber +
-                "\nBALANCE: " + balance
+                "\nBALANCE: " + balance +
+                "\nRATE: " + rate + "%"
                 );
     }
 }

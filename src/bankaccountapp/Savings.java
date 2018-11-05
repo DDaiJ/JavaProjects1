@@ -16,6 +16,11 @@ public class Savings extends Account {
         setSafetyDepositBox();
     }
     
+    @Override
+    public void setRate() {
+        rate = getBaseRate() - 0.25;
+    }
+    
     // List any methods specific to savings account
     private void setSafetyDepositBox() {
         Random rand = new Random();
@@ -33,4 +38,5 @@ public class Savings extends Account {
                 "\n  Safety Deposit Box Key: " + safetyDepositBoxKey
                 );
     }
+
 }

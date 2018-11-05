@@ -17,6 +17,13 @@ public class Checking extends Account {
         setDebitCard();
         
     }
+    
+    @Override
+    public void setRate() {
+        rate = getBaseRate() * 0.15; // rate in Account class and getBaseRate() from interface
+        
+    }
+    
     // List any methods specific to the checking account
     
     private void setDebitCard() {
@@ -35,5 +42,4 @@ public class Checking extends Account {
                 "\n  Debit Card Pin: " + debitCardPin
                 );
     }
-   
 }
