@@ -17,6 +17,7 @@ public class StudentDatabaseApp {
         }
         
         System.out.println("\n" + students.toString());
+        
     }
 
 }
