@@ -1,36 +1,36 @@
 package bankaccountapp;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class BankAccountApp {
 
     public static void main(String[] args) {
+        List<Account> accountList = new LinkedList<Account>();
+        
         String file = "/Users/dai/Documents/UW/Spring18/CSE373/JavaProjects1/"
                 + "src/utilities/NewBankAccounts.csv";
-        /*
-        Checking savacc1 = new Checking("Jessica Dai", "129394332", 1500);
-        Savings chkacc1 = new Savings("Tom Smith", "322223333", 2000);
-        // Read a CSV file then create new accounts based on that data
-        
-        savacc1.showInfo();
-        System.out.println("***********");
-        chkacc1.showInfo();
-        System.out.println("***********");
-        savacc1.deposit(600);
-        savacc1.withdraw(299.3);
-        savacc1.transfer("Hans", 1000);
-        savacc1.compound();
-        */
-        
+
         // Read users from a .csv file
         List<String[]> newAccount = utilities.CSV.read(file);
         for (String[] account : newAccount) {
-            System.out.println("NEW ACCOUNT: ");
-            if (account[2].equals("Savings")) {
-                
-            } else if (account[2].equals("Savings")) {
-                
+            String name = account[0];
+            String sSN = account[1];
+            String accountType = account[2];
+            double initBalance = Double.parseDouble(account[3]);
+            
+            if (accountType.equals("Savings")) {
+                accountList.add(new Savings(name, sSN, initBalance));
+            } else if (accountType.equals("Checking")) {
+                accountList.add(new Checking(name, sSN, initBalance));
+            } else {
+                System.out.println("ERROR READING ACCOUNT TYPE");
             }
+        }
+        
+        for (Account acc : accountList) {
+            acc.showInfo();
+            System.out.println("***********\n");
         }
     }
 
