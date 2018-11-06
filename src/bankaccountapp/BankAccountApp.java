@@ -24,6 +24,14 @@ public class BankAccountApp {
         
         // Read users from a .csv file
         List<String[]> newAccount = utilities.CSV.read(file);
+        for (String[] account : newAccount) {
+            System.out.println("NEW ACCOUNT: ");
+            if (account[2].equals("Savings")) {
+                
+            } else if (account[2].equals("Savings")) {
+                
+            }
+        }
     }
 
 }
